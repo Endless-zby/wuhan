@@ -12,16 +12,12 @@ spring:
 
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://cdb-6kot9g5e.cd.tencentcdb.com:10007/wuhan2020?characterEncoding=utf-8&useSSL=true
+    url: jdbc:mysql://xxx.xxx.xxx.xxx:xxxx/xxxxx?characterEncoding=utf-8&useSSL=true
 #    url: jdbc:mysql://localhost:3306/arms?characterEncoding=utf-8
-    username: root
-    password: zby123456
+    username: xxx
+    password: xxx
 
-  redis:
-    host: 39.96.160.110
 
-  rabbitmq:
-    host: 106.54.231.246
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -41,18 +37,7 @@ spring:
     encoding: UTF-8
     mode: HTML5
 
-  mail:
-    host: smtp.qq.com
-    username: 381016296@qq.com
-    password: jddvtkjkdlvfbiec
-    default-encoding: utf-8
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-            required: true
+
 
   freemarker:
     content-type: text/html

@@ -1,7 +1,8 @@
 package club.zby.wuhan.bean;
 
-import club.zby.wuhan.HttpRequestMethod.HttpProcessor.NationalCityByHttp;
-import club.zby.wuhan.HttpRequestMethod.HttpProcessor.NationalSituationByHttp;
+import club.zby.wuhan.HttpRequestMethod.HttpMethodProcessor.NationalCity1ByHttp;
+import club.zby.wuhan.HttpRequestMethod.HttpMethodProcessor.NationalCity2ByHttp;
+import club.zby.wuhan.HttpRequestMethod.HttpMethodProcessor.NationalSituationByHttp;
 import club.zby.wuhan.Spider.SpiderProcessor.NationalSituationBySpider;
 
 import java.util.Map;
@@ -12,11 +13,24 @@ public enum ScheduledTaskEnum {
 
     /**
      * 任务1（全国状况）
-     * 爬取疫情实时数据 全国的确诊、治愈、死亡人数
+     * 获取疫情实时数据 全国的确诊、治愈、死亡人数（Http）
      */
     TASK_01("NationalSituationByHttp",new NationalSituationByHttp()),
+    /**
+     * 任务2（全国状况）
+     * 获取疫情实时数据 全国的确诊、治愈、死亡人数（Spider）
+     */
     TASK_02("NationalSituationBySpider",new NationalSituationBySpider()),
-    TASK_03("NationalCityByHttp",new NationalCityByHttp());
+    /**
+     * 任务3（全国各省市状况）
+     * 获取疫情实时数据 全国各省市的确诊、治愈、死亡人数（Http）
+     */
+    TASK_03("NationalCity1ByHttp",new NationalCity1ByHttp()),
+    /**
+     * 任务4（全国各省市状况）
+     * 获取疫情实时数据 全国各省市的确诊、治愈、死亡人数（Http）
+     */
+    TASK_04("NationalCity2ByHttp",new NationalCity2ByHttp());
 
     /**
      * 定时任务key

@@ -1,4 +1,4 @@
-package club.zby.wuhan.HttpRequestMethod.HttpInterface;
+package club.zby.wuhan.HttpRequestMethod.HttpMethod;
 
 /**
  * @Author: 赵博雅

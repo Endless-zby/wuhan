@@ -36,6 +36,7 @@ public class ScheduledTaskServiceImpl implements ScheduledTaskService {
     @Autowired
     @Qualifier(value = "scheduledTaskJobMap")
     private Map<String, Runnable> scheduledTaskJobMap;
+
     @Qualifier(value = "threadPoolTaskScheduler")
     @Autowired
     private ThreadPoolTaskScheduler threadPoolTaskScheduler;
@@ -160,7 +161,7 @@ public class ScheduledTaskServiceImpl implements ScheduledTaskService {
         final String taskCron1 = scheduledTask.getTaskCron();
         //获取需要定时调度的接口
         Runnable scheduledTaskJob = scheduledTaskJobMap.get(taskKey);
-        logger.info(">>>>>> 任务 [ {} ] ,cron={}", scheduledTask.getTaskDesc(), taskCron1);
+        logger.info(">>>>>> 任务 [ {} ] ,启动周期cron={}", scheduledTask.getTaskDesc(), taskCron1);
         ScheduledFuture scheduledFuture = threadPoolTaskScheduler.schedule(scheduledTaskJob,
                 new Trigger() {
                     @Override

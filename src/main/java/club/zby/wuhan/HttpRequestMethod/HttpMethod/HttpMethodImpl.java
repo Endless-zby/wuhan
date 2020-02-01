@@ -1,8 +1,6 @@
-package club.zby.wuhan.HttpRequestMethod.HttpInterface;
+package club.zby.wuhan.HttpRequestMethod.HttpMethod;
 
-import club.zby.wuhan.Config.HttpRequest;
 import club.zby.wuhan.Config.HttpRequestImpl;
-import org.hibernate.procedure.spi.ParameterRegistrationImplementor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**

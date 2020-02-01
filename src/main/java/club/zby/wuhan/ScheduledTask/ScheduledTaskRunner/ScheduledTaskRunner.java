@@ -32,9 +32,9 @@ public class ScheduledTaskRunner implements ApplicationRunner {
      */
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
-        LOGGER.info(" >>>>>> 项目启动完毕, 开启 => 需要自启的任务 开始!");
+        LOGGER.info(" >>>>>> 项目启动完毕, 获取所有需要启动的任务 开始!");
         List<ScheduledTaskBean> scheduledTaskBeanList = scheduledTaskDao.getAllNeedStartTask();
         scheduledTaskService.initAllTask(scheduledTaskBeanList);
-        LOGGER.info(" >>>>>> 项目启动完毕, 开启 => 需要自启的任务 结束！");
+        LOGGER.info(" >>>>>> 任务分配结束, 交由线程执行");
     }
 }

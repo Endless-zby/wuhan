@@ -1,5 +1,6 @@
 package club.zby.wuhan.HttpRequestMethod.HttpMethodProcessor;
 
+import club.zby.wuhan.Config.ApplicationBean;
 import club.zby.wuhan.HttpRequestMethod.HttpMethod.HttpMethodImpl;
 import club.zby.wuhan.HttpRequestMethod.HttpMethodService.HttpMethodDao;
 import club.zby.wuhan.ScheduledTask.ScheduledTaskService.ScheduledTaskServiceImpl;
@@ -32,6 +33,7 @@ public class NationalCity1ByHttp implements Runnable {
     public void run() {
 
         try {
+            HttpMethodDao httpMethodDao = ApplicationBean.getBean(HttpMethodDao.class);
             //获取全国各省市的数据
             HttpMethodImpl httpMethod = new HttpMethodImpl();
             String healingPos = httpMethod.getHealingCity1();
@@ -42,14 +44,12 @@ public class NationalCity1ByHttp implements Runnable {
             for (ProvinceEpidemicBean provinceEpidemicBean: list) {
                 cityEpidemicBeans.addAll(provinceEpidemicBean.getList());
             }
-            NationalCity nationalCity = new NationalCity();
-            List<CityEpidemicBean> cityEpidemicBeans2 = nationalCity.saveAll(cityEpidemicBeans);
+            if(httpMethodDao != null){
+                logger.info("返回报文体：{}", nationalEpidemicBean.toString());
+            }
+            List<CityEpidemicBean> rspCityEpidemic = httpMethodDao.saveAll(cityEpidemicBeans);
 //            List<CityEpidemicBean> cityEpidemicBeans1 = nationalCity.saveAll(cityEpidemicBeans);
-
-            logger.info("保存数据量：[{}] 条",cityEpidemicBeans2.size());
-            logger.info("返回报文体：{}", nationalEpidemicBean.toString());
-
-
+            logger.info("保存数据量：[{}] 条",rspCityEpidemic.size());
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -5,3 +5,4 @@
 ### 3、可作为多线程定时任务的框架使用
 ## 2020.02.03
 ### 1、添加数据服务（保存爬虫结果至数据库）
+![Image text](https://raw.githubusercontent.com/zby123456/Local_img/master/wuhan_data.png)

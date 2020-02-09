@@ -47,9 +47,16 @@ public class NationalCity1ByHttp implements Runnable {
             if(httpMethodDao != null){
                 logger.info("返回报文体：{}", nationalEpidemicBean.toString());
             }
-            List<CityEpidemicBean> rspCityEpidemic = httpMethodDao.saveAll(cityEpidemicBeans);
+//            List<CityEpidemicBean> rspCityEpidemic = httpMethodDao.saveAll(cityEpidemicBeans);
+            int num = 0;
+            for (CityEpidemicBean cityEpidemic: cityEpidemicBeans) {
+                int res = httpMethodDao.upDataCityEpidemic(cityEpidemic.getId(), cityEpidemic.getSure_cnt(), cityEpidemic.getLike_cnt(), cityEpidemic.getDie_cnt(), cityEpidemic.getCure_cnt());
+                if(res != 0){
+                    num++;
+                }
+            }
 //            List<CityEpidemicBean> cityEpidemicBeans1 = nationalCity.saveAll(cityEpidemicBeans);
-            logger.info("保存数据量：[{}] 条",rspCityEpidemic.size());
+            logger.info("本次修改数据量：[{}] 条",num);
 
         } catch (Exception e) {
             e.printStackTrace();

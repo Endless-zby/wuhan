@@ -17,6 +17,7 @@ public class CityEpidemicBean implements Serializable {
     private String id;
     private String country;
     private String province;
+    private String province_code;
     private String city;
     private String sure_cnt;
     private String like_cnt;
@@ -25,6 +26,14 @@ public class CityEpidemicBean implements Serializable {
 
     public String getId() {
         return id;
+    }
+
+    public String getProvince_code() {
+        return province_code;
+    }
+
+    public void setProvince_code(String province_code) {
+        this.province_code = province_code;
     }
 
     public void setId(String id) {
@@ -93,6 +102,7 @@ public class CityEpidemicBean implements Serializable {
                 "id='" + id + '\'' +
                 ", country='" + country + '\'' +
                 ", province='" + province + '\'' +
+                ", province_code='" + province_code + '\'' +
                 ", city='" + city + '\'' +
                 ", sure_cnt='" + sure_cnt + '\'' +
                 ", like_cnt='" + like_cnt + '\'' +

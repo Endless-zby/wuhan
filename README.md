@@ -11,3 +11,4 @@
 ### 1、增加数据初始化任务（清空原表数据，重新导入），谨慎使用
 ### 2、新增字段（省份编码）
 ### 3、增加接口，对外提供数据查询接口（准备用vue做简单的前端工程）
+![Image text](https://raw.githubusercontent.com/zby123456/Local_img/master/wuhan_swagger.png)

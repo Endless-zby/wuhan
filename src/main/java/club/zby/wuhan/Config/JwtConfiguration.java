@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 //配置拦截器
-@Component
+//@Component
 @Configuration
 public class JwtConfiguration extends WebMvcConfigurationSupport {
 

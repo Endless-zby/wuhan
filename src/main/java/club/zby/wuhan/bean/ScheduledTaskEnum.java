@@ -1,5 +1,6 @@
 package club.zby.wuhan.bean;
 
+import club.zby.wuhan.HttpRequestMethod.HttpMethodProcessor.DataInit;
 import club.zby.wuhan.HttpRequestMethod.HttpMethodProcessor.NationalCity1ByHttp;
 import club.zby.wuhan.HttpRequestMethod.HttpMethodProcessor.NationalCity2ByHttp;
 import club.zby.wuhan.HttpRequestMethod.HttpMethodProcessor.NationalSituationByHttp;
@@ -30,8 +31,12 @@ public enum ScheduledTaskEnum {
      * 任务4（全国各省市状况）
      * 获取疫情实时数据 全国各省市的确诊、治愈、死亡人数（Http）
      */
-    TASK_04("NationalCity2ByHttp",new NationalCity2ByHttp());
-
+    TASK_04("NationalCity2ByHttp",new NationalCity2ByHttp()),
+    /**
+     * 任务5
+     * 全量数据初始化，执行前会清空表中所有数据
+     */
+    TASK_05("DataInit",new DataInit());
     /**
      * 定时任务key
      */

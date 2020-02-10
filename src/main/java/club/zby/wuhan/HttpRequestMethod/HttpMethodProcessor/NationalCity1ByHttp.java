@@ -7,6 +7,7 @@ import club.zby.wuhan.ScheduledTask.ScheduledTaskService.ScheduledTaskServiceImp
 import club.zby.wuhan.bean.EpidemicBean.CityEpidemicBean;
 import club.zby.wuhan.bean.EpidemicBean.NationalEpidemicBean;
 import club.zby.wuhan.bean.EpidemicBean.ProvinceEpidemicBean;
+import club.zby.wuhan.bean.ProvinceEnum;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,18 +45,19 @@ public class NationalCity1ByHttp implements Runnable {
             for (ProvinceEpidemicBean provinceEpidemicBean: list) {
                 cityEpidemicBeans.addAll(provinceEpidemicBean.getList());
             }
+            logger.info("本次待修改数据量：[{}] 条",cityEpidemicBeans.size());
             if(httpMethodDao != null){
                 logger.info("返回报文体：{}", nationalEpidemicBean.toString());
             }
-//            List<CityEpidemicBean> rspCityEpidemic = httpMethodDao.saveAll(cityEpidemicBeans);
             int num = 0;
             for (CityEpidemicBean cityEpidemic: cityEpidemicBeans) {
-                int res = httpMethodDao.upDataCityEpidemic(cityEpidemic.getId(), cityEpidemic.getSure_cnt(), cityEpidemic.getLike_cnt(), cityEpidemic.getDie_cnt(), cityEpidemic.getCure_cnt());
+
+                int res = httpMethodDao.upDataCityEpidemic(cityEpidemic.getId(), cityEpidemic.getSure_cnt(), cityEpidemic.getLike_cnt(), cityEpidemic.getDie_cnt(), cityEpidemic.getCure_cnt(),ProvinceEnum.valueOf(cityEpidemic.getProvince()).getProvinceCode());
                 if(res != 0){
                     num++;
                 }
             }
-//            List<CityEpidemicBean> cityEpidemicBeans1 = nationalCity.saveAll(cityEpidemicBeans);
+
             logger.info("本次修改数据量：[{}] 条",num);
 
         } catch (Exception e) {

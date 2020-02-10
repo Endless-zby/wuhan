@@ -18,7 +18,7 @@ import java.util.List;
 public interface HttpMethodDao extends JpaRepository<CityEpidemicBean,String>, JpaSpecificationExecutor<CityEpidemicBean> {
 
     @Modifying
-    @Query(nativeQuery = true,value = "update tb_epidemic f set f.sure_cnt = ?2,f.like_cnt = ?3,f.die_cnt = ?4,f.cure_cnt = ?5 where f.id = ?1")
-    int upDataCityEpidemic(String id,String sure_cnt,String like_cnt, String die_cnt,String cure_cnt);
+    @Query(nativeQuery = true,value = "update tb_epidemic f set f.sure_cnt = ?2,f.like_cnt = ?3,f.die_cnt = ?4,f.cure_cnt = ?5,f.province_code = ?6 where f.id = ?1")
+    int upDataCityEpidemic(String id,String sure_cnt,String like_cnt, String die_cnt,String cure_cnt,String province_code);
 
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: 赵博雅
@@ -27,6 +28,7 @@ public class wuHanController {
      * 查询各个区县市级的疫情情况
      * @return
      */
+    @CrossOrigin(origins = "*")
     @GetMapping("cityEpidemic")
     @ResponseBody
     @ApiOperation(value="全国省市数据", notes="查询全国省市中已感染和疑似病例以及死亡人数")
@@ -40,6 +42,7 @@ public class wuHanController {
      * @param cityCode
      * @return
      */
+    @CrossOrigin(origins = "*")
     @GetMapping("cityEpidemicByCityCode")
     @ResponseBody
     @ApiOperation(value="市区详情", notes="查询本市区中已感染和疑似病例以及死亡人数")
@@ -48,5 +51,13 @@ public class wuHanController {
         return new Result(true,cityEpidemicBean,"成功");
     }
 
+    @CrossOrigin(origins = "*")
+    @GetMapping("sumNumber")
+    @ResponseBody
+    @ApiOperation(value="全国总感染人数", notes="查询全国总感染人数")
+    public Result sumNumber(){
+        Map map = wuHanService.sumNumber();
+        return new Result(true,map,"成功");
+    }
 
 }

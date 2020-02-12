@@ -4,6 +4,7 @@ import club.zby.wuhan.bean.EpidemicBean.CityEpidemicBean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: 赵博雅
@@ -23,4 +24,10 @@ public interface WuHanService {
      * @return
      */
     CityEpidemicBean cityEpidemicByCityCode(String id);
+
+    /**
+     * 查询全国感染总人数
+     * @return
+     */
+    Map sumNumber();
 }

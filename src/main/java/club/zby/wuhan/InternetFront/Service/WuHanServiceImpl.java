@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: 赵博雅
@@ -29,5 +30,10 @@ public class WuHanServiceImpl implements WuHanService {
     @Override
     public CityEpidemicBean cityEpidemicByCityCode(String id) {
         return wuhandao.findAllById(id);
+    }
+
+    @Override
+    public Map sumNumber() {
+        return wuhandao.sumNumber();
     }
 }

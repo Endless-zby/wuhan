@@ -12,16 +12,16 @@ spring:
 
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://cdb-6kot9g5e.cd.tencentcdb.com:10007/wuhan2020?characterEncoding=utf-8&useSSL=true
+    url: jdbc:mysql://****:****/****?characterEncoding=utf-8&useSSL=true
 #    url: jdbc:mysql://localhost:3306/arms?characterEncoding=utf-8
-    username: root
-    password: zby123456
+    username: ****
+    password: ****
 
   redis:
-    host: 39.96.160.110
+    host: ****
 
   rabbitmq:
-    host: 39.96.160.110
+    host: ****
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
@@ -42,9 +42,9 @@ spring:
     mode: HTML5
 
   mail:
-    host: smtp.qq.com
-    username: 381016296@qq.com
-    password: jddvtkjkdlvfbiec
+    host: ****
+    username: ****
+    password: ****
     default-encoding: utf-8
     properties:
       mail:
@@ -69,7 +69,7 @@ spring:
 #设置一个邮件发送人
 lance:
   mail:
-    sender: 381016296@qq.com
+    sender: ****
 
 ScheduledTaskUrl:
   url: https://broccoli.uc.cn/apps/pneumonia/routes/index?uc_param_str=dsdnfrpfbivesscpgimibtbmnijblauputogpintnwktprchmt
